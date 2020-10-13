@@ -24,6 +24,11 @@
       "nombre": "Jugo de Fresa",
       "precio": "200",
       "id": 5
+    },
+    {
+      "nombre": "limon",
+      "precio": 123,
+      "id": 6
     }
   ]
 }
