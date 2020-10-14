@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { crearNuevoProductoAction } from "../actions/productoActions";
 
 
-const NuevoProducto = () => {
+const NuevoProducto = ({history}) => {
 
     //Extrayendo datos especificos del state princial redux con useselector
     const cargando = useSelector( state => state.productos.loading);
@@ -36,13 +36,16 @@ const NuevoProducto = () => {
         e.preventDefault();
         //Validar formulario
         if(nombre.trim() === "" || precio <= 0){
-            alert("Los campos son obligatorios");
+            //alert("Los campos son obligatorios");
             return;
         }
         //Si no hay erores
 
         //Crear el nuevo producto
         agregarProducto(datos);
+
+        //Mandando a pagina principal
+        history.push("/");
     }
 
     return ( 

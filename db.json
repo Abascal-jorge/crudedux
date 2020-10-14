@@ -39,6 +39,11 @@
       "nombre": "Tequila",
       "precio": 23,
       "id": 8
+    },
+    {
+      "nombre": "Carne Molida",
+      "precio": 123,
+      "id": 9
     }
   ]
 }
