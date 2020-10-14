@@ -29,6 +29,16 @@
       "nombre": "limon",
       "precio": 123,
       "id": 6
+    },
+    {
+      "nombre": "Tequila",
+      "precio": 243,
+      "id": 7
+    },
+    {
+      "nombre": "Tequila",
+      "precio": 23,
+      "id": 8
     }
   ]
 }

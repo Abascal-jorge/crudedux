@@ -6,6 +6,10 @@ import { crearNuevoProductoAction } from "../actions/productoActions";
 
 const NuevoProducto = () => {
 
+    //Extrayendo datos especificos del state princial redux con useselector
+    const cargando = useSelector( state => state.productos.loading);
+    const error = useSelector( state => state.productos.error );
+
     //Creando state local para pasar datos obtenidos 
     const [datos, guardarNombre] = useState({
         nombre: "",
@@ -81,6 +85,8 @@ const NuevoProducto = () => {
                                 Agregar Producto
                             </button>
                         </form>
+                        { cargando ? <p>Cargando...</p> : null }
+                        { error ? <p className="alert alert-danger p2 mt-5 text-center">Hubo un error</p> : null }
                     </div>
                 </div>
             </div>
