@@ -41,7 +41,7 @@ const EditarProducto = () => {
     //Funcion que se ejecutara cuando el usuario precio el boton de guardar cambios
     const onSubmitCambios = (e) =>{
         e.preventDefault();
-        if(nombre.trim() === "" || precio.trim() === "" ){
+        if(nombre === "" || precio === "" ){
             return;
         }
         dispatch(actualizarProducto(formdato));
