@@ -21,7 +21,7 @@ export function crearNuevoProductoAction(producto) {
         dispatch (agregarProducto());
         try {
             //insertar a la API
-            await clienteAxios.post(`/produdctos`, producto);
+            await clienteAxios.post(`/productos`, producto);
             //Si todo sale bien actuzalizar el state
             dispatch( agregarProductoExito(producto) );
             //Agregando sweetalert 2 confirmacion de hecho
@@ -143,3 +143,30 @@ const obtenerProductoActionEditar = producto => ({
 });
 
 //Editando producto se une con la anterior
+export function actualizarProducto(producto){
+    return async (dispatch) => {
+        dispatch(actualizarProductoExistente());
+
+        try {
+            clienteAxios.put(`/productos/${producto.id}`, producto);
+            dispatch(edicionExitosa(producto));
+        } catch (error) {
+            console.log(error);
+            dispatch(edicionError());
+        }
+    }
+}
+
+const actualizarProductoExistente = ()=>({
+    type: COMENZAR_EDICION_PRODUCTO
+});
+
+const edicionExitosa = (producto) => ({
+    type: PRODUCTO_EDITADO_EXITO,
+    payload: producto
+});
+
+const edicionError = () => ({
+   type: PRODUCTO_EDITADO_ERROR,
+   payload: true
+});

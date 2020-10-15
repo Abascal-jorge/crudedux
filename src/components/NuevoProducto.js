@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 //Action de redux
 import { crearNuevoProductoAction } from "../actions/productoActions";
+import { mostrarAlerta, ocultarAlerta } from "../actions/alertaActions";
 
 
 const NuevoProducto = ({history}) => {
@@ -9,6 +10,7 @@ const NuevoProducto = ({history}) => {
     //Extrayendo datos especificos del state princial redux con useselector
     const cargando = useSelector( state => state.productos.loading);
     const error = useSelector( state => state.productos.error );
+    const alerta = useSelector(state => state.alerta.alerta);
 
     //Creando state local para pasar datos obtenidos 
     const [datos, guardarNombre] = useState({
@@ -37,10 +39,15 @@ const NuevoProducto = ({history}) => {
         //Validar formulario
         if(nombre.trim() === "" || precio <= 0){
             //alert("Los campos son obligatorios");
+            const alerta = {
+                msg: "Ambos campos son obligatorios",
+                classes: "alert alert-danger text-center text-uppercase p3"
+            }
+            dispatch(mostrarAlerta(alerta));
             return;
         }
         //Si no hay erores
-
+        ocultarAlerta();
         //Crear el nuevo producto
         agregarProducto(datos);
 
@@ -59,6 +66,7 @@ const NuevoProducto = ({history}) => {
                         <form
                             onSubmit={submitNuevoProducto}
                         >
+                            {alerta? <p className={alerta.classes}> {alerta.msg} </p> : null}
                             <div className="form-group">
                                 <label>Nombre Producto</label>
                                 <input

@@ -1,16 +1,6 @@
 {
   "productos": [
     {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
-    },
-    {
-      "nombre": "Jugo de Fresa",
-      "precio": "200",
-      "id": 5
-    },
-    {
       "nombre": "Tequila",
       "precio": 243,
       "id": 7
@@ -29,6 +19,11 @@
       "nombre": "Tequila",
       "precio": 254,
       "id": 11
+    },
+    {
+      "nombre": "Bistec",
+      "precio": 240,
+      "id": 12
     }
   ]
 }
